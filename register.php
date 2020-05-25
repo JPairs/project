@@ -1,3 +1,4 @@
+<?php include('server.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,7 +15,8 @@
         <div class="loginbox">
             <h2>Register</h2>
            
-    
+            <form method="post" action="register.php">
+                <?php include('errors.php'); ?>
             <form method="post" action="register.php">
                 
 
@@ -43,7 +45,7 @@
                  
                  <i class="fa fa-database"></i>
 
-                    <input type="text" placeholder="Enter ID-Number" name="email"required>
+                    <input type="text" placeholder="Enter ID-Number" name="ID_Number"required>
                  </div>
                 
                 <input class="btn" type="submit" name="register" value="Register">
