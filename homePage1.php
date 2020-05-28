@@ -13,7 +13,15 @@
     <img src="images/city1.png" alt="Paris" class="center" width="300" height="300" >
     </div>
     <div class ="containerhidden">
-        
+    <button class="export" name="notification" onclick="myFunction()">Check for notifications</button>
+
+<script>
+function myFunction() {
+ 
+    window.location.href="server.php?notification='1'";
+}
+</script>
+<br><br>
     <i class="fa fa-gavel" aria-hidden="true"></i>
     <p> 
              <b><font size="4" color="black">Hi,Lelouch! Interested in working?</font></b>
