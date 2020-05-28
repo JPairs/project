@@ -1,18 +1,29 @@
 <?php
 
-class Employer {
+
+
+
+class Employer{
     
-    public string $username0;
-    public string $password0;
-    public string $email0;
-    public string $ID_number0;
+    var $username0;
+    var $paraliptis;
+    var $minima;
 
 
-    public function inform() {
-
+    public function inform($paraliptis,$minima){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        echo $minima;
+        echo $paraliptis;
+        $insertion = "INSERT INTO inform(paraliptis,minima)  VALUES ('$paraliptis','$minima')";
+        mysqli_query($db,$insertion); 
     }
+    
 }
+$kappa = new Employer;
+$kappa->username0="asds";
+$kappa->inform("STAMI","douleuei");
 
+/*
 class Employee {
     public string $username1;
     public string $password1;
@@ -196,5 +207,5 @@ class Database{
     public function Validation() {
 
     }
-}
->
+}*/
+?>

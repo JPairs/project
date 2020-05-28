@@ -54,4 +54,54 @@ if (isset($_POST['register'])) {
     }
     
 }
+
+
+
+if(isset($_POST['login'])) {
+ 
+    $username = mysqli_real_escape_string($db, $_POST['username']);
+    $password = mysqli_real_escape_string($db, $_POST['password_1']);
+    if(empty($username)) {
+        array_push($errors, "Username is required");
+    }
+    if(empty($password)){
+        array_push($errors, "Password is required");
+    }
+        
+    if(count($errors) === 0 ) {
+        
+        $query= "SELECT * FROM user WHERE username='$username' AND password = '$password'";
+        $result = mysqli_query($db, $query);
+        $rows=mysqli_fetch_assoc($result);
+        $speciality= $rows['Speciality'] ;    
+        if(mysqli_num_rows($result) >= 1) {
+                
+            $_SESSION['username'] = $username;
+            $_SESSION['success'] = "KALOSHRTHES";
+            $_SESSION['boolean'] = false;
+            if ($speciality===true){
+                header('location: homepage0.php');
+            }else{
+                header('location: homepage1.php');
+            }
+        
+
+         }else{
+        array_push($errors, "Wrong username/password. Try again");
+       
+        }  
+    } 
+        mysqli_free_result($result);
+}
+
+
+
+    if(isset($_GET['notification'])) {
+        $newusername = $_SESSION['username'];
+        $query= "SELECT minima FROM inform WHERE paraliptis='$newusername'";
+        $result = mysqli_query($db, $query);
+        $rows=mysqli_fetch_assoc($result);
+        $minima= $rows['minima'] ;
+        echo $minima;
+    }
 ?>
