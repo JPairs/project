@@ -10,21 +10,23 @@
 <body>
     
     <div class ="container">
-    <img src="images/city1.png" alt="Paris" class="center" width="300" height="300" >
+    <img src="images/city1.png" alt="Logo" class="center" width="300" height="300" >
     </div>
     <div class ="containerhidden">
-    <button class="export" name="notification" onclick="myFunction()">Check for notifications</button>
+    <center><i class="fa fa-suitcase fa-5x" aria-hidden="true"></i></center>
+    <p> 
+             <b><font size="4" color="black">Hi,Lelouch! Interested in working?</font></b>
+            </p> 
+    <button class="btn" name="notification" onclick="myFunction()"><i class="fa fa-bell" aria-hidden="true">Check for notification</i> </button>
     <script>
 function myFunction() {
  
     window.location.href="server.php?notification='1'";
 }
 </script>
-<br><br>
-    <i class="fa fa-suitcase" aria-hidden="true"></i>
-    <p> 
-             <b><font size="4" color="black">Hi,Lelouch! Interested in working?</font></b>
-            </p> 
+
+    
+   
     <button class="btn"><i class="fa fa-search">    Search For Employees</i></button>
     <button class="btn"><i class="fa fa-list">   Employments</i></button>
     <button class="btn"><i class="fa fa-user">   My Profile</i></button>
