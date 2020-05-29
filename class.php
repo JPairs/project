@@ -132,7 +132,7 @@ class VoluntaryWork{
 
 class Rating{
     var $success;
-
+    
     public function CheckForSuccess() {
         $query= "SELECT success FROM  WHERE username='$newusername'";
         $result = mysqli_query($db, $query);
@@ -141,7 +141,10 @@ class Rating{
         return $bool;
     }
     public function WarningRating() {
-
+        var $rating="Canceled Job!";
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $kritikh = "INSERT INTO employerprofile(rating) VALUES ('$rating');";
+        mysqli_query($db,$creation); 
     }
     public function RatingControl() {
 
@@ -153,7 +156,7 @@ class Rating{
 
 class Help{
     public function HelpForProfile() {
-
+ftiaxnoume selida me koutaki text kai ena koumpi
     }
     public function HelpForCriteriaEmployment() {
 
@@ -167,9 +170,7 @@ class Help{
 }
 
 class ClientSupport{
-    public function ShowAnswer() {
-
-    }
+   
 }
 
 class Match{
@@ -184,10 +185,18 @@ class Payment{
 
     }
     public function Error() {
-
+paromoio me to inform
     }
-    public function Update() {
-
+    public function total($wres,$paymentperhour){
+$all=$wres*$paymentperhour+($wres*$paymentperhour)*10/100;
+return $all;
+    }
+    
+    public function UpdatePayment($wres,$paymentperhour){
+        $all=$wres*$paymentperhour+($wres*$paymentperhour)*10/100;
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $insertion = "UPDATE payment SET  TotalPayment = '$all';";
+        mysqli_query($db,$insertion); 
     }
 }
 
@@ -200,11 +209,15 @@ class substitude extends Employee{
 }
 
 class Bank{
-    public function Validate() {
-
-    }
-    public function VerifyBankAccount() {
-
+    public function VerifyBankAccount($bank,$wres,$paymentperhour) {
+        $all=$wres*$paymentperhour+($wres*$paymentperhour)*10/100;
+        $ypoloipo=$bank-$all;
+        if ($ypoloipo >= 0 ) {
+            return true;
+        
+        }else{
+        return false;
+        }
     }
 }
 
