@@ -1,8 +1,5 @@
 <?php
 
-
-
-
 class Employer{
     
     var $username0;
@@ -12,8 +9,6 @@ class Employer{
 
     public function inform($paraliptis,$minima){
         $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
-        echo $minima;
-        echo $paraliptis;
         $insertion = "INSERT INTO inform(paraliptis,minima)  VALUES ('$paraliptis','$minima')";
         mysqli_query($db,$insertion); 
     }
@@ -23,12 +18,12 @@ $kappa = new Employer;
 $kappa->username0="asds";
 $kappa->inform("STAMI","douleuei");
 
-/*
+
 class Employee {
-    public string $username1;
-    public string $password1;
-    public string $email1;
-    public string $ID_number1;
+    var $username;
+    var $password;
+    var $email;
+    var $ID_number;
 
     public function inform() {
 
@@ -36,47 +31,57 @@ class Employee {
 }
 
 class EmployerProfile{
-    public string $BrandNameVerification; 
-    public string $Name0;
-    public string $Address;
-    public int $WorkHours0;
-    public string $BankAccount;
-    public string $SocialMedia0;
-    public string $Description0;
+    var $BrandNameVerification; 
+    var $Name;
+    var $Address;
+    var $WorkHours;
+    var $BankAccount;
+    var $SocialMedia;
+    var $Description;
 
-    public function GiveTips() {
-
+    public function UpdateProfile($BrandNameVerification,$Name,$Address,$WorkHours,$BankAccount,$SocialMedia,$Description){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $insertion = "UPDATE employerprofile SET  BrandNameVerification = '$BrandNameVerification' , Name = '$Name' , Address = '$Address' , WorkHours = '$WorkHours' , BankAccount = '$BankAccount' , SocialMedia = '$SocialMedia' , Description = '$Description';";
+        mysqli_query($db,$insertion); 
     }
-    public function UpdateProfile0() {
-
+    
+    public function CreateProfile($BrandNameVerification,$Name,$Address,$WorkHours,$BankAccount,$SocialMedia,$Description){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $creation = "INSERT INTO employerprofile(BrandNameVerification,Name,Address,WorkHours,BankAccount,SocialMedia,Description) VALUES ('$BrandNameVerification','$Name','$Address','$WorkHours','$BankAccount','$SocialMedia','$Description');";
+        mysqli_query($db,$creation); 
     }
-    public function DeleteProfile0() {
-
+    public function DeleteProfile(){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $deletion = "DELETE FROM employerprofile";
+        mysqli_query($db,$deletion); 
     }
+    
 }
+$keepo = new EmployerProfile;
+$noumero = 8;
+
+//$keepo->UpdateProfile("STAMI","douleuei","asasd",$noumero,"asasd","asasd","asasd");
 
 class EmployeeProfile{
-    public string $AMKA;
-    public string $IKA;
-    public boolean $ResidencePermit;
-    public boolean $WorkPermit;
-    public string $AFM;
-    public string $Name1;
-    public string $Lastname;
-    public int $BirthDate;
-    public string $BankAccount;
-    public string $Town;
-    public string $CV;
-    public string $SocialMedia1;
+    var $AMKA;
+    var $IKA;
+    var $ResidencePermit;
+    var $WorkPermit;
+    var $AFM;
+    var $Name1;
+    var $Lastname;
+    var $BirthDate;
+    var $BankAccount;
+    var $Town;
+    var $CV;
+    var $SocialMedia1;
 
 
-    public function HighlightErrors() {
-
-    }
-    public function UpdateProfile1() {
+    
+    public function UpdateProfile() {
 
     }
-    public function DeleteProfile1() {
+    public function DeleteProfile() {
 
     }
 }
@@ -126,8 +131,14 @@ class VoluntaryWork{
 }
 
 class Rating{
-    public function CheckForSuccess() {
+    var $success;
 
+    public function CheckForSuccess() {
+        $query= "SELECT success FROM  WHERE username='$newusername'";
+        $result = mysqli_query($db, $query);
+        $rows=mysqli_fetch_assoc($result);
+        $bool= $rows['success'] ;
+        return $bool;
     }
     public function WarningRating() {
 
