@@ -49,13 +49,15 @@ if (isset($_POST['register'])) {
         $_SESSION['success'] = "Welcome to the club";
         $_SESSION['boolean'] = false;
 
-        header('location: select.php');
+        header('location: register2.php');
           
     }
     
 }
 
-
+if (isset($_POST['Continue'])) {
+    header('location: select.php');
+}
 
 if(isset($_POST['login'])) {
  
