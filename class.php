@@ -24,11 +24,21 @@ class Employee {
     var $password;
     var $email;
     var $ID_number;
+    var $paraliptis;
+    var $minima;
 
-    public function inform() {
-
+    public function inform($paraliptis,$minima){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $insertion = "INSERT INTO inform(paraliptis,minima)  VALUES ('$paraliptis','$minima')";
+        mysqli_query($db,$insertion); 
     }
+    
 }
+$kappa = new Employee;
+$kappa->username0="asds";
+$kappa->inform("STAMI","douleuei");
+    
+
 
 class EmployerProfile{
     var $BrandNameVerification; 
@@ -58,7 +68,7 @@ class EmployerProfile{
     
 }
 $keepo = new EmployerProfile;
-$noumero = 8;
+
 
 //$keepo->UpdateProfile("STAMI","douleuei","asasd",$noumero,"asasd","asasd","asasd");
 
@@ -68,70 +78,118 @@ class EmployeeProfile{
     var $ResidencePermit;
     var $WorkPermit;
     var $AFM;
-    var $Name1;
+    var $Name;
     var $Lastname;
     var $BirthDate;
     var $BankAccount;
     var $Town;
     var $CV;
-    var $SocialMedia1;
+    var $SocialMedia;
 
 
-    
-    public function UpdateProfile() {
-
+    public function CreateProfile($AMKA,$IKA,$ResidencePermit,$WorkPermit,$AFM,$Name,$Lastname,$BirthDate,$BankAccount,$Town,$CV,$SocialMedia){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $creation = "INSERT INTO employeeprofile(AMKA,IKA,Address,ResidencePermit,WorkPermit,AFM,Name,Lastname,BirthDate,BankAccount,Town,CV,SocialMedia) VALUES ('$AMKA','$IKA','$Address','$ResidencePermit','$WorkPermit','$AFM','$Name','$Lastname','$BirthDate','$BankAccount','$Town','$CV','$SocialMedia');";
+        mysqli_query($db,$creation); 
     }
-    public function DeleteProfile() {
-
+    public function UpdateProfile($AMKA,$IKA,$ResidencePermit,$WorkPermit,$AFM,$Name,$Lastname,$BirthDate,$BankAccount,$Town,$CV,$SocialMedia){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $insertion = "UPDATE employeeprofile SET  AMKA = '$AMKA' , IKA = '$IKA' , ResidencePermit = '$ResidencePermit' , WorkPermit = '$WorkPermit' , AFM = '$AFM' , Name = '$Name' , Lastname = '$Lastname', BirthDate = '$BirthDate' , BankAccount = '$BankAccount' , Town = '$Town' , CV = '$CV' , SocialMedia = '$SocialMedia';";
+        mysqli_query($db,$insertion); 
+    }
+    }
+    public function DeleteProfile(){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $deletion = "DELETE FROM employeeprofile";
+        mysqli_query($db,$deletion); 
     }
 }
+$keepo = new EmployeeProfile;
 
 class Employment{
-    public string $Description;
-    public string $WorkHours;
-    public double $PaymentPerHour;
-    public boolean $Sex;
-    public int $NumberOfEmployees;
-    public int $Date;
-    public boolean $Open;
+    var $Description;
+    var $WorkHours;
+    var $PaymentPerHour;
+    var $Sex;
+    var $NumberOfEmployees;
+    var $Date;
+    var $Open;
 
-    public function UpdateEmployment() {
-
+    public function CreateEmployment($Description,$WorkHours,$PaymentPerHour,$Sex,$NumberOfEmployees,$Date,$Open){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $creation = "INSERT INTO employment(Description,WorkHours,PaymentPerHour,Sex,NumberOfEmployees,Date,Open) VALUES ('$Description','$WorkHours','$PaymentPerHour','$Sex','$NumberOfEmployees','$Date','$Open');";
+        mysqli_query($db,$creation); 
     }
-    public function DeleteEmployment() {
-
+    public function UpdateEmployment($Description,$WorkHours,$PaymentPerHour,$Sex,$NumberOfEmployees,$Date,$Open){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $insertion = "UPDATE employment SET  Description = '$Description' , WorkHours = '$WorkHours' , PaymentPerHour = '$PaymentPerHour' , Sex = '$Sex' , NumberOfEmployees = '$NumberOfEmployees' , Date = '$Date' , Open = '$Open';";
+        mysqli_query($db,$insertion); 
+    }
+    public function DeleteEmployment(){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $deletion = "DELETE FROM employment";
+        mysqli_query($db,$deletion); 
     }
 }
+$keepo = new Employment;
 
-class criteria{
-    public string $profession;
-    public string $Adress;
-    public int $Dates;
-    public int $TimeSchedule;
-    public double $PaymentPerHour;
+class Criteria{
+    var $profession;
+    var $Adress;
+    var $Dates;
+    var $TimeSchedule;
+    var $PaymentPerHour;
+
+    public function CreateCriteria($profession,$Adress,$Dates,$TimeSchedule,$PaymentPerHour){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $creation = "INSERT INTO criteria(Profession,Adress,Dates,TimeSchedule,PaymentPerHour) VALUES ('$profession','$Adress','$Dates','$TimeSchedule','$PaymentPerHour');";
+        mysqli_query($db,$creation); 
+    }
+    public function UpdateCriteria($profession,$Adress,$Dates,$TimeSchedule,$PaymentPerHour){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $insertion = "UPDATE criteria SET  Profession = '$profession' , Adress = '$Adress' , Dates = '$Dates' , TimeSchedule = '$TimeSchedule' , PaymentPerHour = '$PaymentPerHour';";
+        mysqli_query($db,$insertion); 
+    }
+    public function DeleteCriteria(){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $deletion = "DELETE FROM criteria";
+        mysqli_query($db,$deletion); 
+    }
 }
+$keepo = new Criteria;
 
 class VoluntaryWork{
-    public string $Description;
-    public int $DateTime;
-    public string $Address;
-    public string $Purpose;
-    public int $NumberOfVolunteers;
+    var $Description;
+    var $DateTime;
+    var $Address;
+    var $Purpose;
+    var $NumberOfVolunteers;
+    var $paraliptis;
+    var $minima;
+    var $CON="Confirmed";
 
 
-    public function Inform() {
-
+    public function inform($paraliptis,$minima){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $insertion = "INSERT INTO inform(paraliptis,minima)  VALUES ('$paraliptis','$minima')";
+        mysqli_query($db,$insertion); 
     }
     public function RefreshList() {
 
     }
     public function PostReward() {
-
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $insertion = "INSERT INTO user(CompletedVoluntary)  VALUES ('$CON')";
+        mysqli_query($db,$insertion); 
     }
 }
+$keepo = new VoluntaryWork;
 
 class Rating{
     var $success;
+    var $monthNow= date("m");
+    var $dayNow= date("d");
+    var $MyEndDate;
     
     public function CheckForSuccess() {
         $query= "SELECT success FROM  WHERE username='$newusername'";
@@ -146,27 +204,13 @@ class Rating{
         $kritikh = "INSERT INTO employerprofile(rating) VALUES ('$rating');";
         mysqli_query($db,$creation); 
     }
-    public function RatingControl() {
-
-    }
-    public function CheckForDays() {
-
-    }
+    
 }
+$keepo = new Rating;
 
 class Help{
-    public function HelpForProfile() {
-ftiaxnoume selida me koutaki text kai ena koumpi
-    }
-    public function HelpForCriteriaEmployment() {
 
-    }
-    public function HelpForPayment() {
-
-    }
-    public function Other() {
-
-    }
+  
 }
 
 class ClientSupport{
@@ -181,11 +225,15 @@ class Payment{
     public double $TotalPayment
     public double $Commission;
 
-    public function Inform() {
-
+    public function inform($paraliptis,$minima){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $insertion = "INSERT INTO inform(paraliptis,minima)  VALUES ('$paraliptis','$minima')";
+        mysqli_query($db,$insertion); 
     }
-    public function Error() {
-paromoio me to inform
+    public function inform($paraliptis,$minima){
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $insertion = "INSERT INTO inform(paraliptis,minima)  VALUES ('$paraliptis','$minima')";
+        mysqli_query($db,$insertion); 
     }
     public function total($wres,$paymentperhour){
 $all=$wres*$paymentperhour+($wres*$paymentperhour)*10/100;
@@ -199,6 +247,7 @@ return $all;
         mysqli_query($db,$insertion); 
     }
 }
+$keepo = new Payment;
 
 class Open extends Employment{
 
