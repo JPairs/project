@@ -2,7 +2,7 @@
 
 class Employer{
     
-    var $username0;
+    var $username;
     var $paraliptis;
     var $minima;
 
@@ -14,9 +14,9 @@ class Employer{
     }
     
 }
-$kappa = new Employer;
-$kappa->username0="asds";
-$kappa->inform("STAMI","douleuei");
+$object = new Employer;
+$object->username="Giorgos";
+$object->inform("giorgos","New job");
 
 
 class Employee {
@@ -34,9 +34,9 @@ class Employee {
     }
     
 }
-$kappa = new Employee;
-$kappa->username0="asds";
-$kappa->inform("STAMI","douleuei");
+$object = new Employee;
+$object->username="Giorgos";
+$object->inform("giorgos","New job");
     
 
 
@@ -67,7 +67,7 @@ class EmployerProfile{
     }
     
 }
-$keepo = new EmployerProfile;
+$object = new EmployerProfile;
 
 
 //$keepo->UpdateProfile("STAMI","douleuei","asasd",$noumero,"asasd","asasd","asasd");
@@ -104,7 +104,7 @@ class EmployeeProfile{
         mysqli_query($db,$deletion); 
     }
 }
-$keepo = new EmployeeProfile;
+$object = new EmployeeProfile;
 
 class Employment{
     var $Description;
@@ -131,7 +131,7 @@ class Employment{
         mysqli_query($db,$deletion); 
     }
 }
-$keepo = new Employment;
+$object = new Employment;
 
 class Criteria{
     var $profession;
@@ -156,7 +156,7 @@ class Criteria{
         mysqli_query($db,$deletion); 
     }
 }
-$keepo = new Criteria;
+$object = new Criteria;
 
 class VoluntaryWork{
     var $Description;
@@ -183,7 +183,7 @@ class VoluntaryWork{
         mysqli_query($db,$insertion); 
     }
 }
-$keepo = new VoluntaryWork;
+$object = new VoluntaryWork;
 
 class Rating{
     var $success;
@@ -206,7 +206,7 @@ class Rating{
     }
     
 }
-$keepo = new Rating;
+$object = new Rating;
 
 class Help{
 
@@ -247,7 +247,7 @@ return $all;
         mysqli_query($db,$insertion); 
     }
 }
-$keepo = new Payment;
+$object = new Payment;
 
 class Open extends Employment{
 
