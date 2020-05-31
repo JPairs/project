@@ -271,14 +271,14 @@ class Bank{
 }
 
 class Database{
-    public function DeleteJob() {
+    var $employement_ID;
+    var $Description;
+    $deleted='deleted';
+    public function DeleteJob($employement_ID) {
+        $db = mysqli_connect('localhost', 'root', '', 'JPairs') or die("could not connect to database");
+        $insertion = "INSERT INTO employment(Employment_ID)  VALUES ('$deleted')";
+        mysqli_query($db,$insertion); 
 
     }
-    public function SaveJob() {
-
-    }
-    public function Validation() {
-
-    }
-}*/
+}
 ?>
