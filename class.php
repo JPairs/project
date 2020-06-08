@@ -35,12 +35,13 @@ class Employee {
     
 }
 $object = new Employee;
-$object->username="Giorgos";
-$object->inform("giorgos","New job");
+$object->username="Giannis";
+$object->inform("giannis","New job");
     
 
 
 class EmployerProfile{
+    
     var $BrandNameVerification; 
     var $Name;
     var $Address;
